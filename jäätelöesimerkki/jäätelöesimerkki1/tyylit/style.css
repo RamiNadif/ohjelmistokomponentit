@@ -1,0 +1,11 @@
+main {
+  display: grid;
+  justify-content: center;
+}
+h1 {
+  color: blue;
+}
+section div {
+  display: grid;
+  justify-content: center;
+}
