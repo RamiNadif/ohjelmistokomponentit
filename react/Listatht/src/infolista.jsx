@@ -1,5 +1,3 @@
-import App from "./App";
-
 function Infolista({ taulukko }) {
   return (
     <ul>
