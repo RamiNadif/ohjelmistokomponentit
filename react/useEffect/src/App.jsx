@@ -1,7 +1,6 @@
-import { useEffect } from "react";
-
+import Title from "./title";
 function App() {
-  return;
+  return <Title />;
 }
 
 export default App;
