@@ -11,6 +11,7 @@ function Title() {
         );
         const data = await response.json();
         setPosts(data);
+        fetchdata();
       },
     [],
   );

@@ -1,6 +1,12 @@
 import Title from "./title";
+import Postaukset from "./postaukset";
 function App() {
-  return <Title />;
+  return (
+    <div>
+      <Title />
+      <Postaukset />
+    </div>
+  );
 }
 
 export default App;
