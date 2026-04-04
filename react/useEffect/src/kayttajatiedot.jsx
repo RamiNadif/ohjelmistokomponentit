@@ -20,7 +20,7 @@ function Kayttajatiedot() {
 
     try {
       const response = await fetch(
-        `https://jsonplaceholder.typicode.com/usersss/${userId}`,
+        `https://jsonplaceholder.typicode.com/users/${userId}`,
       );
 
       if (!response.ok) {
