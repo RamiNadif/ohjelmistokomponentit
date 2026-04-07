@@ -1,0 +1,44 @@
+[
+  {
+    "autonumero": 4,
+    "hinta": 300000,
+    "merkki": "Ajokki",
+    "malli": "gold",
+    "valmistaja": "Formel I"
+  },
+  {
+    "autonumero": 3,
+    "hinta": 36000,
+    "merkki": "Kilpuri",
+    "malli": "silver",
+    "valmistaja": "Li Nux cars"
+  },
+  {
+    "autonumero": 2,
+    "hinta": 300000,
+    "merkki": "Kaara",
+    "malli": "GT",
+    "valmistaja": "Electric cars"
+  },
+  {
+    "autonumero": 7,
+    "hinta": 300000,
+    "merkki": "Kottero",
+    "malli": "XXL",
+    "valmistaja": "Li Nux cars"
+  },
+  {
+    "autonumero": 5,
+    "hinta": 25000,
+    "merkki": "Biili",
+    "malli": "XL",
+    "valmistaja": "Hybrid oy"
+  },
+  {
+    "autonumero": 1,
+    "hinta": 15000,
+    "merkki": "Hoppa",
+    "malli": "silver",
+    "valmistaja": "Alset inc."
+  }
+]

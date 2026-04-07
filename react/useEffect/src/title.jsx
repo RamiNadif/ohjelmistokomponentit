@@ -3,17 +3,16 @@ import { useState } from "react";
 
 function Title() {
   const [posts, setPosts] = useState([]);
-  useEffect(
-    () =>
-      async function fetchdata() {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/posts",
-        );
-        const data = await response.json();
-        setPosts(data);
-      },
-    [],
-  );
+  useEffect(() => {
+    async function fetchdata() {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts",
+      );
+      const data = await response.json();
+      setPosts(data);
+    }
+    fetchdata();
+  }, []);
   return (
     <div>
       <h1>Titles</h1>
