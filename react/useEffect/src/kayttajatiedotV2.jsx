@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Kayttajatiedotv2() {
-  const [id, setId] = useState("");
+  const [id, setId] = useState(1);
   const [tiedot, setTiedot] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [posts, setPosts] = useState(null);
+  const [posts, setPosts] = useState([]);
 
   const haeKayttaja = async () => {
     const userId = Number(id);
@@ -39,39 +39,36 @@ function Kayttajatiedotv2() {
     } catch (err) {
       setError(err.message);
       setTiedot(null);
-      setPosts(null);
+      setPosts([]);
     } finally {
       setLoading(false);
     }
   };
-
+  useEffect(() => {
+    haeKayttaja();
+  }, [id]);
   return (
     <div>
       <h1>Käyttäjätiedot ja Titlet</h1>
-
-      <input
-        type="number"
-        placeholder="Anna ID (1-10)"
-        value={id}
-        onChange={(e) => setId(e.target.value)}
-      />
-
-      <button onClick={haeKayttaja}>Hae käyttäjä</button>
-
+      <button onClick={() => setId(id + 1)}>Seuraava</button>
+      <button onClick={() => setId(id - 1)}>Edellinen</button>
       {loading && <p>Ladataan...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
-
       {tiedot && posts && !loading && !error && (
-        <p>
-          Nimi: {tiedot.name} <br />
-          Kaupunki: {tiedot.address?.city}
+        <div>
+          <p>
+            ID: {tiedot.id} <br />
+            Nimi: {tiedot.name} <br />
+            Kaupunki: {tiedot.address?.city}
+          </p>
+
           <h3>Titles</h3>
           <ul>
             {posts.slice(0, 10).map((post) => (
               <li key={post.id}>{post.title}</li>
             ))}
           </ul>
-        </p>
+        </div>
       )}
     </div>
   );
