@@ -1,39 +1,22 @@
 import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import tietovarasto from "./tietovarasto.json" with { type: "json" };
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 3000;
+const host = "localhost";
 
-const autovarasto = [
-  {
-    autonumero: 4,
-    hinta: 300000,
-    merkki: "Ajokki",
-    malli: "gold",
-    valmistaja: "Formel I",
-  },
-  {
-    autonumero: 3,
-    hinta: 36000,
-    merkki: "Kilpuri",
-    malli: "silver",
-    valmistaja: "Li Nux cars",
-  },
-  {
-    autonumero: 2,
-    hinta: 300000,
-    merkki: "Kaara",
-    malli: "GT",
-    valmistaja: "Electric cars",
-  },
-];
-
-app.get("/autovarasto", (req, res) => {
-  res.json(autovarasto);
-});
-
-// serve frontend
 app.use(express.static("public"));
 
-app.listen(port, () => {
-  console.log("Server running http://localhost:" + port);
+app.get("/autovarasto", (req, res) => {
+  res.json(tietovarasto);
 });
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "auto.html"));
+});
+app.listen(port, () => console.log(`${host} ${port} Palvelee...`));

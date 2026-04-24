@@ -5,18 +5,23 @@
     <script type="module" src="komponentti.js"></script>
     <script type="module" src="main.js"></script>
   </head>
+
   <body>
     <h1>Autot</h1>
+
     <div id="autot">
-      <auto-elementti></auto-elementti>
-      <auto-elementti></auto-elementti>
-      <auto-elementti></auto-elementti>
-      <auto-elementti></auto-elementti>
-      <auto-elementti></auto-elementti>
-      <auto-elementti></auto-elementti>
+      <auto-elementti
+        merkki="Toyota"
+        malli="Corolla"
+        hinta="20000"
+        valmistaja="Toyota Motor Corporation"
+      ></auto-elementti>
     </div>
-    <h2>Ostoskori</h2>
-    <ul id="kori"></ul>
-    <p id="summa"></p>
+    <div id="ostoskori">
+      <h2>Ostoskori</h2>
+      <h3>Tuotteet:</h6>
+      <ul id="kori"></ul>
+      <p id="summa"></p>
+    </div>
   </body>
 </html>
