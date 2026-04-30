@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Tietojenhaku from "./Tietojenhaku";
 import Taulukko from "./Taulukko";
+import Yksittainen from "./Yksittainen";
+import lisaatieto from "./lisaatieto";
 
 // Luodaan neljä yksinkertaista komponenttia
 function Home() {
@@ -29,17 +31,18 @@ function App() {
             <li>
               <Link to="/">Etusivu</Link>
             </li>
-            <li>
-              <Link to="/about">Tietoa</Link>
-            </li>
-            <li>
-              <Link to="/contact">Yhteys</Link>
-            </li>
+
             <li>
               <Link to="/haku">Kaikki Tiedot</Link>
             </li>
             <li>
               <Link to="/Taulukko">Taulukko Tiedot</Link>
+            </li>
+            <li>
+              <Link to="/Yksittainen/1">Yksittäinen Tieto</Link>
+            </li>
+            <li>
+              <Link to="/lisaatieto">Lisää Tieto</Link>
             </li>
           </ul>
         </nav>
@@ -49,6 +52,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/haku" element={<Tietojenhaku />} />
           <Route path="/Taulukko" element={<Taulukko />} />
+          <Route path="/Yksittainen/:id" element={<Yksittainen />} />
+          <Route path="/lisaatieto" element={<lisaatieto />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
