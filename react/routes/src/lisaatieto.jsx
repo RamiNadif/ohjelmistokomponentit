@@ -1,11 +1,11 @@
-import { useState, useEffect, use } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-function lisaatieto() {
+function Lisaatieto() {
   const [messages, setMessages] = useState([]);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const handleAdd = async () => {
+    console.log("klikattu");
     try {
       const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
         method: "POST",
@@ -21,21 +21,23 @@ function lisaatieto() {
   };
 
   return (
-    (
+    <div>
       <input
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        placeholder="Anna title"
       />
-    ),
-    (
+
       <input
         type="text"
         value={body}
         onChange={(e) => setBody(e.target.value)}
+        placeholder="Anna body"
       />
-    ),
-    (<button onClick={handleAdd}>Lisää tieto</button>)
+
+      <button onClick={handleAdd}>Lisää tieto</button>
+    </div>
   );
 }
-export default lisaatieto;
+export default Lisaatieto;
