@@ -5,8 +5,8 @@ function Lisaatieto() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const handleAdd = async () => {
-    console.log("klikattu");
     try {
+      if (!title || !body) return;
       const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -15,6 +15,9 @@ function Lisaatieto() {
 
       const newMsg = await res.json();
       setMessages((prev) => [...prev, newMsg]);
+      if (messages.length === 0) {
+        return;
+      }
     } catch (err) {
       console.error(err);
     }
@@ -37,6 +40,15 @@ function Lisaatieto() {
       />
 
       <button onClick={handleAdd}>Lisää tieto</button>
+
+      {messages.map((msg) => (
+        <ul key={msg.id}>
+          <li>
+            <h3>{msg.title}</h3>
+            <p> {msg.body}</p>
+          </li>
+        </ul>
+      ))}
     </div>
   );
 }
