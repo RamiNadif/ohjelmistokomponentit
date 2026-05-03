@@ -3,7 +3,9 @@ import Tietojenhaku from "./Tietojenhaku";
 import Taulukko from "./Taulukko";
 import Yksittainen from "./Yksittainen";
 import Lisaatieto from "./lisaatieto";
-
+import Paivitatieto from "./paivitatieto";
+import Tiedonpoisto from "./Tiedonpoisto";
+import "./app.css";
 // Luodaan neljä yksinkertaista komponenttia
 function Home() {
   return <h2>Etusivu</h2>;
@@ -44,6 +46,12 @@ function App() {
             <li>
               <Link to="/Lisaatieto">Lisää Tieto</Link>
             </li>
+            <li>
+              <Link to="/Paivitatieto">Päivitä Tieto</Link>
+            </li>
+            <li>
+              <Link to="/Tiedonpoisto">Poista Tieto</Link>
+            </li>
           </ul>
         </nav>
 
@@ -54,8 +62,9 @@ function App() {
           <Route path="/Taulukko" element={<Taulukko />} />
           <Route path="/Yksittainen/:id" element={<Yksittainen />} />
           <Route path="/Lisaatieto" element={<Lisaatieto />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/Paivitatieto" element={<Paivitatieto />} />
+          <Route path="/Tiedonpoisto" element={<Tiedonpoisto />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
